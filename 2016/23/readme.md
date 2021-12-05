@@ -1,0 +1,4 @@
+<article class="day-desc"><h2>--- Day 23: Safe Cracking ---</h2><p>This is one of the top floors of the nicest tower in EBHQ. The Easter Bunny's private office is here, complete with a safe hidden behind a painting, and who <em>wouldn't</em> hide a star in a safe behind a painting?</p>
+<p>The safe has a digital screen and keypad for code entry. A sticky note attached to the safe has a password hint on it: "eggs". The painting is of a large rabbit coloring some eggs. You see <code>7</code>.</p>
+<p>When you go to type the code, though, nothing appears on the display; instead, the keypad comes apart in your hands, apparently having been smashed. Behind it is some kind of socket - one that matches a connector in your <a href="11">prototype computer</a>! You pull apart the smashed keypad and extract the logic circuit, plug it into your computer, and plug your computer into the safe.</p>
+</article>
