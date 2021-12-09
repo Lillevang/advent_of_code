@@ -1,12 +1,12 @@
 def fish_after(number_of_days)
     starting_state = File.read("./input").split(",").map{ |x| x.to_i }
-    fish_at_each_stage = (0..8).map { |days| starting_state.count(days).to_i64 || 0.to_i64 }
+    state = (0..8).map { |days| starting_state.count(days).to_i64 || 0.to_i64 }
     number_of_days.times do 
-      fish_at_each_stage.rotate!
-      fish_at_each_stage[6] += fish_at_each_stage.last
+      state.rotate!
+      state[6] += state.last
     end
   
-    fish_at_each_stage.sum
+    state.sum
 end
 
 p fish_after(80)
