@@ -24,9 +24,7 @@ object solution {
 
         def optimizeForFuel(positions: Array[Int]) : Int = {
             val avg = Math.floor(positions.sum.toDouble / positions.length.toDouble).toInt
-            positions.foldLeft(0)((acc, cur) => {
-                acc + naturalSum(Math.abs(cur - avg))
-            })
+            positions.foldLeft(0)((acc, cur) => {acc + naturalSum(Math.abs(cur - avg))})
         }
     }
 
