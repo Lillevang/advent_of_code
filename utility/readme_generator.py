@@ -6,9 +6,11 @@ from bs4 import BeautifulSoup
 from datetime import date, datetime
 from typing import List, Dict
 
+
 def read_session() -> Dict[str, str]:
     with open('../config/login.json', 'r') as file:
         return json.load(file)
+
 
 USER_AGENT = {"User-Agent": "advent-of-code-data v1.1.1"} # Stolen from https://github.com/wimglenn/advent-of-code-data/
 SESSION = read_session()
@@ -20,8 +22,10 @@ def get_webpage(year: str, day: str) -> List[str]:
     articles = [str(_) for _ in BeautifulSoup(res.text, 'html.parser').find_all('article')]
     return articles
 
+
 def get_data(year: str, day: str) -> str:
     return requests.get(url = f'{BASE_URL}/{year}/day/{day}/input', cookies=SESSION, headers=USER_AGENT).text
+
 
 def create_dirs_if_not_exists(year: str, day: str) -> None:
     if not os.path.isdir(f'../{year}'):

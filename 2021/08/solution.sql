@@ -121,6 +121,3 @@ from
       digits
       join complete_map on digits.digits = complete_map.signal
   ) number_map
-
-
-
