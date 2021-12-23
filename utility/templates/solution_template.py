@@ -16,11 +16,12 @@ def part_two():
 
 def main() -> None:
     data = read_input()
-    if sys.argv[1] == '1':
-        print(part_one(data))
-    elif sys.argv[1] == '2':
-        print(part_two(data))
-    else:
+    try:
+        if sys.argv[1] == '1':
+            print(part_one(data))
+        elif sys.argv[1] == '2':
+            print(part_two(data))
+    except:
         print(part_one(data))
         print(part_two(data))
 
