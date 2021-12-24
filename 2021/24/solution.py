@@ -18,7 +18,7 @@ def solve(max, lines: List[List[int]]) -> int:
         w = Int(f'w{i}')
         v = v * 10 + w # Concatenating the values
         s.add(And(w >= 1, w <= 9)) # the check for valid digits (1-9) is added to the optimizer
-        z = If(z % 26 + q == w, z / p, z/p * 26 +  w + r) 
+        z = If(z % 26 + q == w, z / p, z/p * 26 +  w + r) # The repeated sequence is decompiled into these operations. 
     s.add(z == 0)
 
     (s.maximize if max else s.minimize)(v)
@@ -26,11 +26,11 @@ def solve(max, lines: List[List[int]]) -> int:
     return s.model().eval(v)
 
 
-def part_one(data: List[List[int]]):
+def part_one(data: List[List[int]]) -> None:
     print(solve(True, data))
 
 
-def part_two(data: List[List[int]]):
+def part_two(data: List[List[int]]) -> None:
     print(solve(False, data))
 
 
