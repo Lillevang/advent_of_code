@@ -9,6 +9,7 @@ __pycache__/
 *.so
 config/*
 .metals/*
+**/node_modules/
 
 # Distribution / packaging
 .Python
