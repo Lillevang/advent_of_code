@@ -1,6 +1,6 @@
 # Solution
 
-Solved using pen and paper.
+Part 1 solved using pen and paper.
 
 ---
 
