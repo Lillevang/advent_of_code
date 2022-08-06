@@ -9,7 +9,8 @@ __pycache__/
 *.so
 config/*
 .metals/*
-
+/bin
+/lib
 # Distribution / packaging
 .Python
 build/
