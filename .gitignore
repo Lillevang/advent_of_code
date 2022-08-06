@@ -11,6 +11,8 @@ config/*
 .metals/*
 /bin
 /lib
+**/node_modules/
+
 # Distribution / packaging
 .Python
 build/
