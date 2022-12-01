@@ -5,6 +5,8 @@ __pycache__/
 .vscode
 *.class
 .metals
+**/target/**
+
 # C extensions
 *.so
 config/*
