@@ -1,7 +1,3 @@
-# Solution used to recreate part2 solution
-# Also serves as inspiration for own dijkstra implementation in Crystal
-# Source https://github.com/githuib/AdventOfCode/tree/master/year2021/day23
-
 from __future__ import annotations
 
 from copy import copy
