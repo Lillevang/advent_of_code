@@ -134,7 +134,7 @@ class AmphipodState(dijkstra.State):
           #A#D#C#A#
           #########
         """
-        def p(i):  # ik zat in tram 5 en m'n lul stond stijf
+        def p(i): 
             return '  ' if i else '##'
         s = '.ABCD'
         h = '.'.join(s[a] for a in self._hallway)
