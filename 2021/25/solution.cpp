@@ -3,8 +3,6 @@
 #include <string>
 #include <vector>
 
-#define EXAMPLE 0 		// define as 1 to take input in the example
-
 enum class State
 {
 	Empty,
@@ -25,11 +23,9 @@ int main()
 	get_input();
 
 	uint32_t step_count = 0;
-	//std::cout << sea_floor << std::endl;
 	for (bool b1 = true, b2 = true; b1 || b2;)
 	{
 		step_count++;
-		//std::cout << sea_floor << std::endl;
 		b1 = play_step(State::FacingEast);
 		b2 = play_step(State::FacingSouth);
 	}
@@ -40,12 +36,7 @@ int main()
 
 void get_input()
 {
-	#if EXAMPLE == 1
-	std::ifstream input_file{ "example.txt" };
-	#elif EXAMPLE == 0
 	std::ifstream input_file{ "input" };
-	#endif
-
 	std::string line;
 
 	while (std::getline(input_file, line))
