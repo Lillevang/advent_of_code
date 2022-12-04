@@ -9,5 +9,6 @@ import { Day7Viz } from './day7/ui';
 import { Day9Viz } from './day9/ui';
 import './index.css';
 
+render(() => <Day11Viz />, document.getElementById('app')!);
 //render(() => <Day25Viz />, document.getElementById('app')!);
-render(() => <Day23Viz />, document.getElementById('app')!);
+//render(() => <Day23Viz />, document.getElementById('app')!);
