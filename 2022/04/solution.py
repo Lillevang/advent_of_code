@@ -3,8 +3,6 @@
 with open('./input', 'r') as file:
     data = [l.split(',') for l in file.readlines()]
 
-
-
 def split_pairs(raw_pair):
     return raw_pair[0].strip().split('-'), _[1].strip().split('-')
 
