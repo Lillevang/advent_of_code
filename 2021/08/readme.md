@@ -102,11 +102,3 @@ g    b
 <p>Adding all of the output values in this larger example produces <code><em>61229</em></code>.</p>
 <p>For each entry, determine all of the wire/segment connections and decode the four-digit output values. <em>What do you get if you add up all of the output values?</em></p>
 </article>
-
-## Solution
-
-**Part 1:**
-
-Read data into a simple SQL table and do a simple count
-
-<img src ="../../assets/2021-12-08_pt1.png"/>
