@@ -354,4 +354,3 @@ define_methods({
 })
 
 puts a
-
