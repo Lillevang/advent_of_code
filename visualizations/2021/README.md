@@ -1,1 +1,0 @@
-To use the Visualization tool change the render line in the index.tsx file.
