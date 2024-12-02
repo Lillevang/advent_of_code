@@ -19,7 +19,7 @@ defmodule AOC2024.Day2 do
   # Parse a line into a list of integers
   defp parse_report(line), do: line |> String.split() |> Enum.map(&String.to_integer/1)
 
-  # Check if the report is valid for part 1
+  # Check if the report is valid 
   defp valid_report?(report) do
     sorted? = report == Enum.sort(report) or report == Enum.sort(report, :desc)
 
@@ -31,7 +31,7 @@ defmodule AOC2024.Day2 do
     sorted? and valid_differences?
   end
 
-  # Check if removing one element can make the report valid for part 2
+  # Check if removing one element can make the report valid
   defp single_removal_valid?(report) do
     report
     |> Enum.with_index()

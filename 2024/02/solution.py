@@ -18,6 +18,5 @@ for report in data:
     if any(is_good(report[:i] + report[i + 1:]) for i in range(len(report))):
         part_2 += 1
 
-
 print(part_1)
 print(part_2)
