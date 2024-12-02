@@ -1,0 +1,2 @@
+print(sum([len(set(x)) for x in [_.replace('\n', '') for _ in open('input').read().split('\n\n')]])) 
+print(sum([len(set.intersection(*[set(a) for a in _.split('\n')])) for _ in open('input').read().split('\n\n')]))
