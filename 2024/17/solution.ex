@@ -16,14 +16,14 @@ defmodule AOC2024.Day17 do
   # Process instructions with a state machine
   defp process(prog, a, b, c, ip, out) do
     table = [0, 1, 2, 3, a, b, c, 99_999]
-    lit = Enum.at(prog, ip + 1, 0)
-    combo = Enum.at(table, lit, 0)
+    operand = Enum.at(prog, ip + 1, 0)
+    combo = Enum.at(table, operand, 0)
 
     case Enum.at(prog, ip) do
       0 -> process(prog, a >>> combo, b, c, ip + 2, out)
-      1 -> process(prog, a, Bitwise.bxor(b, lit), c, ip + 2, out)
+      1 -> process(prog, a, Bitwise.bxor(b, operand), c, ip + 2, out)
       2 -> process(prog, a, rem(combo, 8), c, ip + 2, out)
-      3 -> process(prog, a, b, c, if(a == 0, do: ip + 2, else: lit), out)
+      3 -> process(prog, a, b, c, if(a == 0, do: ip + 2, else: operand), out)
       4 -> process(prog, a, Bitwise.bxor(b, c), c, ip + 2, out)
       5 -> process(prog, a, b, c, ip + 2, List.insert_at(out, -1, rem(combo, 8)))
       6 -> process(prog, a, a >>> combo, c, ip + 2, out)
