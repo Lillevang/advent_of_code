@@ -1,4 +1,5 @@
 import Bitwise
+
 defmodule AOC2024.Day17 do
   # Load and parse the input file
   def load_input(file) do
@@ -15,7 +16,7 @@ defmodule AOC2024.Day17 do
   defp process(prog, _a, _b, _c, ip, out) when ip < 0 or ip >= length(prog), do: out
   # Process instructions with a state machine
   defp process(prog, a, b, c, ip, out) do
-    table = [0, 1, 2, 3, a, b, c, 99_999]
+    table = [0, 1, 2, 3, a, b, c]
     operand = Enum.at(prog, ip + 1, 0)
     combo = Enum.at(table, operand, 0)
 
