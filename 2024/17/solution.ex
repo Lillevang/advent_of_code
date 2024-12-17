@@ -40,17 +40,15 @@ defmodule AOC2024.Day17 do
   defp search_a(_prog, target, a, depth) when depth == length(target), do: a
 
   defp search_a(prog, target, a, depth) do
-    Enum.reduce_while(0..7, 0, fn i, _acc ->
+    Enum.find_value(0..7, fn i ->
       output = run(prog, a * 8 + i)
       if output != [] and hd(output) == Enum.at(target, depth) do
-        case search_a(prog, target, a * 8 + i, depth + 1) do
-          0 -> {:cont, 0}
-          result -> {:halt, result}
-        end
+        result = search_a(prog, target, a * 8 + i, depth + 1)
+        if result != 0, do: result, else: nil
       else
-        {:cont, 0}
+        nil
       end
-    end)
+    end) || 0
   end
 
   # Main function to solve Part 1 and Part 2
