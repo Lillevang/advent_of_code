@@ -1,0 +1,3 @@
+# Did not have time to finish my own one-liner for part two. See explanations.md for explanations and source.
+print((e:=lambda p,l,a,v:a if l in v else(e(p,l+1,a,v+[l])if p[l][:3]=='nop'else(e(p,l+1,a+int(p[l][4:]),v+[l])if p[l][:3]=='acc'else(e(p,l+int(p[l][4:]),a,v+[l])))))(open('input').read().splitlines(),0,0,[]))
+print(list(filter(lambda o:o!=None,map(e:=lambda p,l=0,a=0,v=[]:a if l>=len(p)else(None if l in v else(e(p,l+1,a,v+[l])if p[l][:3]=='nop'else(e(p,l+1,a+int(p[l][4:]),v+[l])if p[l][:3]=='acc'else(e(p,l+int(p[l][4:]),a,v+[l]))))),(lambda i:[[j.replace('jmp', 'n').replace('nop', 'jmp').replace('n', 'nop') if y==x else j for y, j in enumerate(i.copy())]for x,l in enumerate(i)])(open('input').read().splitlines()))))[0])
