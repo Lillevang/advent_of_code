@@ -48,7 +48,7 @@ defmodule AOC2024.Day17 do
       else
         nil
       end
-    end) || 0
+    end) || nil
   end
 
   # Main function to solve Part 1 and Part 2
