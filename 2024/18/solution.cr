@@ -14,8 +14,8 @@ part1_path = [] of Collections::Grid::Point
 part2_coordinate = nil
 
 # Start and goal positions
-start = Collections::Grid::Point.new(0, 0)
-goal = Collections::Grid::Point.new(70, 70)
+start = {0,0}
+goal = {70,70}
 
 # Iterate over all coordinates
 coordinates.each_with_index do |coordinate, index|
