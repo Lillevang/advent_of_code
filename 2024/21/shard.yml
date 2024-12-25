@@ -1,0 +1,19 @@
+name: "21"
+version: 0.1.0
+
+# authors:
+#   - name <email@example.com>
+
+# description: |
+#   Short description of 16
+
+dependencies:
+  collections:
+    github: Lillevang/collections
+    version: ~> 0.1.0
+
+# development_dependencies:
+#   webmock:
+#     github: manastech/webmock.cr
+
+# license: MIT
