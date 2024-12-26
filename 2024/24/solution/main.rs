@@ -96,7 +96,6 @@ pub fn run(file_path: &str) {
 
         // tokens: e.g. "x00 AND y00 -> z00"
         // We might do something like: split by ' ', '->'
-        // The C++ snippet used: Split(lines[i], " ->", KeepEmpty::No);
         let toks = split_string(line, &[' ', '-', '>'], false);
         // Example tokens might be: ["x00", "AND", "y00", "z00"]
 
