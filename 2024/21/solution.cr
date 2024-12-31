@@ -21,6 +21,7 @@ MOVE_CACHE = Hash[Tuple[str, str, int], int].new
 
 def find_shortest_path(target_code : String, pad_depth : Int32) : Int32
   # Initial state with type QueueState
+  # TODO: The first number in the QueueState is the priority in the queue. I should implement a custom comparator for the BinaryHeapMin or add a priorityQueeu to the library that assumes the first element is the priority.
   initial_state : QueueState = [0, {3, 2}, "A", "", ""]
   queue = Collections::BinaryHeapMin(Array(QueueState)).new.add([initial_state])
   visited = Hash({Position, String, String}, Int32).new
