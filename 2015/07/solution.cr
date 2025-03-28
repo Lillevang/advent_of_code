@@ -66,7 +66,7 @@ define_methods({
     jp => jn | jo,
     jc => iv | jb,
     hw => hv | hu,
-    b => 19138.to_u16, # FOR PART TWO EXCHANGE WITH 16076
+    b => 19138.to_u16, # FOR PART TWO EXCHANGE WITH 16076, 19138 FOR PART 1.
     gm => gj >> 5.to_u16,
     ht => hq & hs,
     er => dy >> 1.to_u16,
