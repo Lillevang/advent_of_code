@@ -1,0 +1,15 @@
+name: 23
+version: 0.1.0
+
+# authors:
+#   - name <email@example.com>
+
+# description: |
+#   Short description of 23
+
+dependencies:
+  collections:
+    github: Lillevang/collections
+    version: ~> 0.2.9
+
+# license: MIT
