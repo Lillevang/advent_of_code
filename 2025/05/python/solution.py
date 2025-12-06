@@ -1,15 +1,18 @@
 import sys
 import bisect
+from typing import List, Tuple
+
+Range = Tuple[int, int]
 
 
-def read_input(path: str = "input") -> tuple[list[tuple[int, int]], list[int]]:
+def read_input(path: str = "input") -> tuple[List[Range], List[int]]:
     with open(path, "r") as f:
         blocks = f.read().strip().split("\n\n")
 
     range_lines = blocks[0].splitlines()
     id_lines = blocks[1].splitlines()
 
-    ranges: list[tuple[int, int]] = []
+    ranges: List[Range] = []
     for line in range_lines:
         line = line.strip()
         if not line:
@@ -28,7 +31,7 @@ def merge_ranges(ranges):
 
     # sort by start
     ranges = sorted(ranges, key=lambda r: r[0])
-    merged: list[tuple[int, int]] = []
+    merged: List[Range] = []
     cur_start, cur_end = ranges[0]
 
     for start, end in ranges[1:]:
@@ -69,13 +72,14 @@ def part_two(ranges) -> int:
 
 def main() -> None:
     ranges, ingredient_ids = read_input()
-    try:
-        if sys.argv[1] == '1':
-            print(part_one(ranges, ingredient_ids))
-        elif sys.argv[1] == '2':
-            print(part_two(ranges))
-    except Exception:
-        print("We fucked up...")
+    arg = sys.argv[1] if len(sys.argv) > 1 else None
+    if arg == '1':
+        print(part_one(ranges, ingredient_ids))
+    elif arg == '2':
+        print(part_two(ranges))
+    else:
+        print(part_one(ranges, ingredient_ids))
+        print(part_two(ranges))
 
 
 if __name__ == '__main__':

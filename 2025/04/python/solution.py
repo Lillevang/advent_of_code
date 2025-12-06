@@ -9,50 +9,39 @@ NEIGHBORS = [
     if not (dr == 0 and dc == 0)
 ]
 
+Grid = list[list[str]]
 
-def read_input() -> List[str]:
+
+def read_input() -> Grid:
     with open('./input', 'r') as file:
         return [list(line.strip()) for line in file if line.strip()]
 
 
-def count_accessible_once(grid: list[list[str]]) -> int:
+def _count_neighbors_in_grid(grid: Grid, r: int, c: int) -> int:
     rows = len(grid)
     cols = len(grid[0]) if rows > 0 else 0
 
-    def neighbor_count(r: int, c: int) -> int:
-        cnt = 0
-        for dr, dc in NEIGHBORS:
-            nr, nc = r + dr, c + dc
-            if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == "@":
-                cnt += 1
-        return cnt
+    cnt = 0
+    for dr, dc in NEIGHBORS:
+        nr, nc = r + dr, c + dc
+        if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == "@":
+            cnt += 1
+    return cnt
 
-    total = 0
-    for r in range(rows):
-        for c in range(cols):
-            if grid[r][c] == "@":
-                if neighbor_count(r, c) < 4:
-                    total += 1
-    return total
+
+def count_accessible_once(grid: Grid) -> int:
+    return part_one(grid)
 
 
 def part_one(grid):
     rows = len(grid)
     cols = len(grid[0]) if rows > 0 else 0
 
-    def neighbor_count(r, c):
-        cnt = 0
-        for dr, dc in NEIGHBORS:
-            nr, nc = r + dr, c + dc
-            if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == "@":
-                cnt += 1
-        return cnt
-
     total = 0
     for r in range(rows):
         for c in range(cols):
             if grid[r][c] == "@":
-                if neighbor_count(r, c) < 4:
+                if _count_neighbors_in_grid(grid, r, c) < 4:
                     total += 1
     return total
 
@@ -62,10 +51,12 @@ def part_two(grid):
     cols = len(grid[0]) if rows > 0 else 0
 
     # present[r][c] = does this cell currently contain a roll?
-    present = [[grid[r][c] == "@" for c in range(cols)] for r in range(rows)]
+    present: list[list[bool]] = [
+        [grid[r][c] == "@" for c in range(cols)] for r in range(rows)
+    ]
 
     # deg[r][c] = number of neighboring rolls
-    deg = [[0] * cols for _ in range(rows)]
+    deg: list[list[int]] = [[0] * cols for _ in range(rows)]
     for r in range(rows):
         for c in range(cols):
             if not present[r][c]:
@@ -78,7 +69,7 @@ def part_two(grid):
             deg[r][c] = cnt
 
     # queue of rolls that are currently accessible (< 4 neighbors)
-    q = deque()
+    q: deque[tuple[int, int]] = deque()
     for r in range(rows):
         for c in range(cols):
             if present[r][c] and deg[r][c] < 4:
@@ -102,7 +93,6 @@ def part_two(grid):
                 # It just transitioned from 4 → 3, so it becomes newly removable
                 if deg[nr][nc] == 3:
                     q.append((nr, nc))
-
     return removed
 
 
