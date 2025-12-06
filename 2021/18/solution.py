@@ -1,7 +1,6 @@
 import itertools
 import math
 from functools import reduce
-from os import path
 
 
 def add_left(x, n):
